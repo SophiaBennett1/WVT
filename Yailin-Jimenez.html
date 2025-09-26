@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yailin y Jimenez filtrado en Telegram se vuelve viral Completo</title>
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* small visual polish */
+    :root { --card-bg: rgba(255,255,255,0.02); }
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      backdrop-filter: blur(4px);
+    }
+    
+    /* Modified to show one card per line */
+    @media (min-width: 640px) {
+      .grid-cols-1 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-slate-100 antialiased">
+
+  <header class="max-w-6xl mx-auto p-6 sm:p-8">
+    <div class="flex items-center justify-between gap-4">
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight">Web Viral Trends</h1>
+        <p class="text-sm text-slate-400 mt-1">Your One-Stop Destination for Viral Content.</p>
+      </div>
+      <!-- Removed the buttons container -->
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 pb-12">
+    <!-- Removed the search input -->
+
+    <!-- grid of cards - modified to show one per line -->
+    <section id="linksGrid" class="grid grid-cols-1 gap-5">
+      <!-- JS will populate cards here -->
+    </section>
+  </main>
+
+  <script>
+    /***********************
+     * Data: list of links
+     * Replace or generate this array server-side as needed.
+     ***********************/
+    const LINKS = [
+      { title: "Yailin y Jimenez filtrado en Telegram se vuelve viral Completo", url: "https://text.tweetkar.com/c8gf391rbr" },
+	  { title: "Go Back Web Viral Trends", url: "https://sophiabennett1.github.io/WVT/" },
+      { title: "Tweetkar Free File Conversion Tools", url: "https://tweetkar.com/" },
+      { title: "Tweetkar Pastebin", url: "https://text.tweetkar.com/" },
+      { title: "Join Telegram", url: "https://t.me/WebViralTrendzz" },
+      { title: "Join Discord", url: "https://discord.gg/e6Zjj5psdW" },
+      { title: "WVT Backup Links", url: "https://heylink.me/WebViralTrends/" }
+    ];
+
+    // --- helpers ---
+    const grid = document.getElementById('linksGrid');
+
+    function createCard(item, idx) {
+      const card = document.createElement('article');
+      card.className = 'p-5 rounded-2xl border border-slate-800 glass flex flex-col justify-between shadow-sm';
+
+      // Title
+      const title = document.createElement('h2');
+      title.className = 'text-lg sm:text-xl font-medium text-slate-100 text-center';
+      title.textContent = item.title;
+      title.setAttribute('data-index', idx);
+
+      // Spacer so only title and button are visible by default
+      const spacer = document.createElement('div');
+      spacer.className = 'flex-1';
+
+      // Open link button (directly opens the URL in a new window)
+      const btn = document.createElement('a');
+      btn.className = 'mt-4 w-full inline-flex items-center justify-center px-4 py-2 rounded-md bg-rose-600 hover:bg-rose-700 active:scale-98 transition transform text-white font-semibold';
+      btn.textContent = 'Open';
+      btn.href = item.url;
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+
+      // accessible label
+      btn.setAttribute('aria-label', `Open ${item.title}`);
+
+      card.appendChild(title);
+      card.appendChild(spacer);
+      card.appendChild(btn);
+      return card;
+    }
+
+    // render initial grid
+    function render(list) {
+      grid.innerHTML = '';
+      if (!list.length) {
+        grid.innerHTML = '<p class="col-span-full text-center text-slate-400">No links found.</p>';
+        return;
+      }
+      list.forEach((it, i) => grid.appendChild(createCard(it, i)));
+    }
+
+    render(LINKS);
+
+    /********************
+     * Developer notes:
+     * - Replace LINKS array with server-rendered data or fetch JSON.
+     * - The "Open" button directly opens the link in a new window.
+     ********************/
+  </script>
+
+</body>
+</html>
